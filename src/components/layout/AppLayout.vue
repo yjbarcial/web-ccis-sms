@@ -1,11 +1,12 @@
 <script setup>
 import { ref } from 'vue'
 
-// const theme = ref('light')
+const theme = ref('light')
 
-// function onClick() {
-//   theme.value = theme.value === 'light' ? 'dark' : 'light'
-// }
+function onClick() {
+  theme.value = theme.value === 'light' ? 'dark' : 'light'
+  localStorage.setItem('theme', theme.value)
+}
 </script>
 
 <template>
@@ -14,12 +15,12 @@ import { ref } from 'vue'
       <v-app-bar class="px-3" color="">
         <v-spacer></v-spacer>
 
-        <!-- <v-btn
-          :prepend-icon="theme === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'"
-          text="Toggle Theme"
+        <v-btn
+          :icon="theme === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'"
+          variant="elevated"
           slim
           @click="onClick"
-        ></v-btn> -->
+        ></v-btn>
       </v-app-bar>
 
       <v-main>
